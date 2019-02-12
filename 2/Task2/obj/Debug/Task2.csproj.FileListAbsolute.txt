@@ -1,0 +1,7 @@
+J:\Библиотеки\Документы\cs\2\Task2\obj\Debug\Task2.csprojAssemblyReference.cache
+J:\Библиотеки\Документы\cs\2\Task2\obj\Debug\Task2.csproj.CoreCompileInputs.cache
+J:\Библиотеки\Документы\cs\2\Task2\bin\Debug\Task2.exe.config
+J:\Библиотеки\Документы\cs\2\Task2\bin\Debug\Task2.exe
+J:\Библиотеки\Документы\cs\2\Task2\bin\Debug\Task2.pdb
+J:\Библиотеки\Документы\cs\2\Task2\obj\Debug\Task2.exe
+J:\Библиотеки\Документы\cs\2\Task2\obj\Debug\Task2.pdb
