@@ -1,0 +1,7 @@
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.exe.config
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.exe
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.pdb
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.csprojAssemblyReference.cache
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.csproj.CoreCompileInputs.cache
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.exe
+J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.pdb

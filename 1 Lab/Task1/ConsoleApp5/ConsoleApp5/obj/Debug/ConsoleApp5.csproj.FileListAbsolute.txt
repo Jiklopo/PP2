@@ -1,0 +1,12 @@
+J:\YandexDisk\Документы\с#\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe.config
+J:\YandexDisk\Документы\с#\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe
+J:\YandexDisk\Документы\с#\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.pdb
+J:\YandexDisk\Документы\с#\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csproj.CoreCompileInputs.cache
+J:\YandexDisk\Документы\с#\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.exe
+J:\YandexDisk\Документы\с#\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.pdb
+J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe.config
+J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe
+J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.pdb
+J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csproj.CoreCompileInputs.cache
+J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.exe
+J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.pdb
