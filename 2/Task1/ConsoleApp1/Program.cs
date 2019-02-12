@@ -11,9 +11,9 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string text = System.IO.File.ReadAllText(@"..\..\input.txt");
+            string text = System.IO.File.ReadAllText(@"..\..\input.txt");//gets string from file
             bool Is_Palindrom = true;
-            for (int i=0; i<text.Length; i++)
+            for (int i=0; i<text.Length; i++)//checks if it is palindrom
             {
                 if(text[i]!=text[text.Length - 1 - i])
                 {

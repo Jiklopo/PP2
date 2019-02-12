@@ -9,7 +9,7 @@ namespace Task2
 {
     class Program
     {
-        public static bool Is_Prime(int a)
+        public static bool Is_Prime(int a)//function to check if number is prime
         {
             if (a == 1)
                 return false;
@@ -23,15 +23,14 @@ namespace Task2
         static void Main(string[] args)
         {
             int a;
-            string s = System.IO.File.ReadAllText(@"..\..\input.txt");
-            System.IO.File.WriteAllText(@"..\..\output.txt", "");
-            string[] sa = s.Split(' ');
-            int[] asd = new int[sa.Length];
+            string s = System.IO.File.ReadAllText(@"..\..\input.txt");//reading everything from file and saving it to a string
+            System.IO.File.WriteAllText(@"..\..\output.txt", "");//creates an empty file
+            string[] sa = s.Split(' '); //splits string to an array of string numbers("26")
             for(int i=0; i<sa.Length; i++)
             {
-                a = int.Parse(sa[i]);
-                if (Is_Prime(a))
-                    System.IO.File.AppendAllText(@"..\..\output.txt", a + " ");
+                a = int.Parse(sa[i]);//makes an int from string
+                if (Is_Prime(a))//checks if this int is prime
+                    System.IO.File.AppendAllText(@"..\..\output.txt", a + " ");//adding it to the file
             }
             Console.ReadKey();
 

@@ -5,3 +5,10 @@ J:\Библиотеки\Документы\cs\2\Task4\obj\Debug\Task4.csprojAsse
 J:\Библиотеки\Документы\cs\2\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
 J:\Библиотеки\Документы\cs\2\Task4\obj\Debug\Task4.exe
 J:\Библиотеки\Документы\cs\2\Task4\obj\Debug\Task4.pdb
+J:\Библиотеки\Документы\с#\2\Task4\bin\Debug\Task4.exe.config
+J:\Библиотеки\Документы\с#\2\Task4\bin\Debug\Task4.exe
+J:\Библиотеки\Документы\с#\2\Task4\bin\Debug\Task4.pdb
+J:\Библиотеки\Документы\с#\2\Task4\obj\Debug\Task4.csprojAssemblyReference.cache
+J:\Библиотеки\Документы\с#\2\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
+J:\Библиотеки\Документы\с#\2\Task4\obj\Debug\Task4.exe
+J:\Библиотеки\Документы\с#\2\Task4\obj\Debug\Task4.pdb
