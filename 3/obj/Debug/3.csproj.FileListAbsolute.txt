@@ -1,0 +1,7 @@
+J:\Библиотеки\Документы\с#\3\obj\Debug\3.csprojAssemblyReference.cache
+J:\Библиотеки\Документы\с#\3\obj\Debug\3.csproj.CoreCompileInputs.cache
+J:\Библиотеки\Документы\с#\3\bin\Debug\3.exe.config
+J:\Библиотеки\Документы\с#\3\bin\Debug\3.exe
+J:\Библиотеки\Документы\с#\3\bin\Debug\3.pdb
+J:\Библиотеки\Документы\с#\3\obj\Debug\3.exe
+J:\Библиотеки\Документы\с#\3\obj\Debug\3.pdb
