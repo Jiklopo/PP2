@@ -15,42 +15,55 @@ namespace _3
         int cursor;
         DirectoryInfo dir;
         public static FileSystemInfo[] vse;
+
+
+
+
         public Provodnik()//constructor with default path
         {
             dir = new DirectoryInfo(@"J:\Библиотеки\Документы");
-            vse = dir.GetFileSystemInfos();
         }
         Provodnik(string path)//Constructor with custom path
         {
             dir = new DirectoryInfo(path);   
         }
+
+
+
+
         public void Start()
         {
             while (true)
             {
                 Show();//Shows contents of the folder
                 ConsoleKeyInfo key = Console.ReadKey();//reads a key to know what to do next
+
+
                 if (key.Key == ConsoleKey.Escape)
                 {
                     break;//quits the loop and porgram ends
                 }
+
                 else if (key.Key == ConsoleKey.DownArrow)//moves cursor down
                 {
                     cursor++;
                     if (cursor == vse.Length)
                         cursor = 0;
                 }
+
                 else if (key.Key == ConsoleKey.UpArrow)//moves cursor up
                 {
                     cursor--;
                     if (cursor < 0)
                         cursor = vse.Length - 1;
                 }
+
                 else if (key.Key == ConsoleKey.Backspace)//changes current directory to upper directory
                 {
                     cursor = 0;
                     dir = new DirectoryInfo(dir.Parent.FullName);//upper directory is parent so we change our path to the parrent
                 }
+
                 else if (key.Key == ConsoleKey.Enter)//Enters selected directory or opens file
                 {
                     if (vse[cursor].GetType() == typeof(DirectoryInfo))//changes current directory if selected item is a folder
@@ -58,6 +71,7 @@ namespace _3
                         dir = new DirectoryInfo(vse[cursor].FullName);
                         cursor = 0;
                     }
+
                     else//opens a file
                     {
                         Cleaner();
@@ -75,15 +89,18 @@ namespace _3
                     }
 
                 }
+
                 else if (key.Key == ConsoleKey.F2)//renames file or directory
                 {
                     Cleaner();
                     string name = Console.ReadLine();//gets the future name of the file/directory
                     string path = Path.GetDirectoryName(vse[cursor].FullName);
+
                     if(vse[cursor].GetType() == typeof(DirectoryInfo))
                     {
                         Directory.Move(vse[cursor].FullName, Path.Combine(path, name));//just move it to the same directory with name changing
                     }
+
                     else
                     {
                         string ext = Path.GetExtension(vse[cursor].FullName);//get file's extension to add it later
@@ -92,12 +109,15 @@ namespace _3
 
                     cursor = 0;
                 }
+
                 else if (key.Key == ConsoleKey.F5)//continues loop to refresh
                     continue;
+
                 else if (key.Key == ConsoleKey.Delete)//function to delete file
                 {
                     if (vse[cursor].GetType() == typeof(FileInfo))
                         File.Delete(vse[cursor].FullName);//if it is a file it just deletes it
+
                     else
                     {
                         Remove(vse[cursor].FullName);//if it is directory initialize a function
@@ -105,10 +125,15 @@ namespace _3
                 }
             }
         }
+
+
+
+
         public void Show()//function to show all directories and files in the current folder
         {
             Cleaner();
             vse = dir.GetFileSystemInfos();//get list of files and directories in current folder
+            vse = Sorter9000(vse);
             for(int i=0; i<vse.Length; i++)//checks every item in vse to color console
             {
                 if(i == cursor)//colors selected item
@@ -129,6 +154,10 @@ namespace _3
                 Console.WriteLine(vse[i]);//print name of the file/directory
             }
         }
+
+
+
+
         public void Remove(string path)//function to delete folders
         {
             bool Is_Deleted = false;
@@ -155,11 +184,38 @@ namespace _3
                     Directory.Delete(path);
             }
         }
+
+
+
+
         public void Cleaner()//cleans console
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
+        }
+
+
+
+        public FileSystemInfo[] Sorter9000(FileSystemInfo[] a)//function to sort directories and files
+        {
+            bool Continue = true;
+            FileSystemInfo temp;
+            while (Continue)
+            {
+                Continue = false;
+                for(int i = 1;  i < a.Length; i++)
+                {
+                    if(a[i].GetType() == typeof(DirectoryInfo) && a[i-1].GetType() == typeof(FileInfo))//checks two elements and changes places
+                    {//                                                                                 so directory will be first
+                        temp = a[i];
+                        a[i] = a[i - 1];
+                        a[i - 1] = temp;
+                        Continue = true;
+                    }
+                }
+            }
+            return a;
         }
     }
     class Program
