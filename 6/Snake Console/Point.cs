@@ -15,5 +15,9 @@ namespace Snake_Console
             this.x = x;
             this.y = y;
         }
+        new public string ToString()
+        {
+            return x.ToString() + " " + y;
+        }
     }
 }

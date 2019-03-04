@@ -10,9 +10,11 @@ namespace Snake_Console
 {
     public class Shtuki
     {
-        public List<Point> Chel= new List<Point>();
+        public List<Point> GoodSpots = new List<Point>();
+        public List<Point> Chel = new List<Point>();
         public Color color;
         public char sign;
+
 
         public Shtuki(Point p, Color color, char sign)
         {
@@ -20,12 +22,15 @@ namespace Snake_Console
             this.color = color;
             this.sign = sign;
         }
+
+        
+
         public void Draw()
         {
             foreach(Point p in Chel)
             {
                 Console.SetCursorPosition(p.x, p.y);
-                Console.Write(sign);
+                Console.Write(sign, color);
             }
         }
 

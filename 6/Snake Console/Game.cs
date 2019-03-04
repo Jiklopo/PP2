@@ -15,11 +15,15 @@ namespace Snake_Console
         bool IAmAlive = true;
         Snake snake;
         Food food;
+        Wall wall;
+        Scoreboard scoreboard;
 
         public Game()
         {
             snake = new Snake(new Point(10, 10), Color.White, 'O');
-            food = new Food(new Point(15, 15), Color.AliceBlue, '$');
+            wall = new Wall(new Point(1, 1), Color.BlueViolet, '#');
+            food = new Food(new Point(15, 15), Color.Yellow, '$');
+            scoreboard = new Scoreboard();
         }
 
         public void Start()
@@ -28,20 +32,24 @@ namespace Snake_Console
             Console.CursorVisible = false;
             Console.SetWindowSize(40, 20);
             Console.SetBufferSize(40, 20);
+            
             while (IAmAlive && key.Key != ConsoleKey.Escape)
             {
                 key = Console.ReadKey();
+                wall.Draw();
                 snake.Move(key);
                 food.Draw();
                 snake.Draw();
+                scoreboard.Draw();
                 if (snake.Boom(food))
                 {
                     SoundPlayer eat = new SoundPlayer(@"Sounds\food.wav");
                     eat.Play();
-                    food.Spawn();
+                    scoreboard.score += 10;
+                    food.Spawn(wall.GoodSpots);
                     snake.Chel.Add(new Point(0, 0));
                 }
-                else if (snake.Chel.Count > 2 && snake.Boom(snake, 1))
+                else if ((snake.Chel.Count > 2 && snake.Boom(snake, 1)) || snake.Boom(wall))
                 {
                     IAmAlive = false;
                     GameOver();
@@ -252,10 +260,7 @@ namespace Snake_Console
                 ColorConsole();
                 Console.Write("*");
             }
-            Console.SetCursorPosition(29, 14);
-            ColorConsole();
-            Console.Write("*");
-
+            System.Threading.Thread.Sleep(3000);
             Console.ReadKey();
         }
     }
