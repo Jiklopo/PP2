@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Timers;
-using System.Threading;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ namespace SuperSnake
     {
         SoundPlayer eat = new SoundPlayer(@"Sounds\food.wav");
         SoundPlayer Death = new SoundPlayer(@"Sounds\death.wav");
+        Timer Drawer9000 = new Timer(300);
         ConsoleKeyInfo key;
         bool IAmAlive = true;
         Snake snake;
@@ -35,23 +35,26 @@ namespace SuperSnake
 
         public void Start()
         {
-            Thread Drawer9000 = new Thread(Drawer5000);
-            Drawer9000.Start();
-            while(IAmAlive && key.Key != ConsoleKey.Escape)
-            {
-                key = Console.ReadKey();
-                dir.ChangeDirection(key);
-                Thread.Sleep(300 / lvl);
-            }
-        }
-
-        void Drawer5000()
-        {
             Console.CursorVisible = false;
             Console.SetWindowSize(40, 20);
             Console.SetBufferSize(40, 20);
+            Drawer9000.Elapsed += Drawer5000;
+            Drawer9000.Start();
             wall.Draw();
-            while (IAmAlive && key.Key != ConsoleKey.Escape)
+            while(IAmAlive && key.Key != ConsoleKey.Escape)
+            {
+                dir.ChangeDirection(key);
+                key = Console.ReadKey();
+                if (key.Key == ConsoleKey.P)
+                    Pause();
+                if (!scoreboard.timer.Enabled)
+                    scoreboard.timer.Start();
+            }
+        }
+
+        void Drawer5000(object sender, EventArgs e)
+        {
+            //while (IAmAlive && key.Key != ConsoleKey.Escape)
             {
                 Point tail = new Point(snake.Chel[snake.Chel.Count - 1].x, snake.Chel[snake.Chel.Count - 1].y);
                 Console.SetCursorPosition(tail.x, tail.y);
@@ -65,13 +68,15 @@ namespace SuperSnake
                     eat.Play();
                     scoreboard.score += 10;
                     scoreboard.Draw();
-                    if (scoreboard.score % 100 == 0)
+                    if (scoreboard.score % 50 == 0)
                     {
                         lvl++;
+                        Drawer9000.Interval = 300 / lvl;
                         snake.ChangeLevel();
                         wall.LoadLevel(lvl);
                         wall.Draw();
                         dir = new Direction();
+                        scoreboard.timer.Stop();
                     }
                     food.Spawn(wall.GoodSpots, snake.Chel);
                     snake.Chel.Add(new Point(30, 19));
@@ -81,8 +86,20 @@ namespace SuperSnake
                     IAmAlive = false;
                     GameOver();
                 }
-                Thread.Sleep(300/lvl);
             }
+        }
+
+        public void Pause()
+        {
+            Drawer9000.Stop();
+            scoreboard.timer.Stop();
+            ConsoleKeyInfo p = Console.ReadKey();
+            while(p.Key != ConsoleKey.P)
+                p = Console.ReadKey();
+            Console.Clear();
+            wall.Draw();
+            Drawer9000.Start();
+            scoreboard.timer.Start();
         }
 
         public Color ColorConsole()
@@ -97,6 +114,8 @@ namespace SuperSnake
         public void GameOver()
         {
             Death.Play();
+            Drawer9000.Stop();
+            scoreboard.timer.Stop();
             Console.ResetColor();
             Console.Clear();
             
@@ -255,7 +274,6 @@ namespace SuperSnake
                 Console.Write("*", ColorConsole());
             }
             System.Threading.Thread.Sleep(3000);
-            Console.ReadKey();
         }
     }
 
