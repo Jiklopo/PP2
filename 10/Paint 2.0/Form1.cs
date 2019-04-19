@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,144 +14,131 @@ namespace Paint_2._0
 {
     public partial class Form1 : Form
     {
-        public static Thread ad;
-        public static System.Drawing.Drawing2D.GraphicsContainer asd;
-        public static Graphics g;
-        public static System.Drawing.Drawing2D.GraphicsState gs;
-        public static bool Is_Drawing, Is_Curve;
-        public static Pen pen;
-        public static SolidBrush brush;
-        public static Secretar Vasek;
-        public Point a, b;
-        public List<Point> CurvaPoints;
-        public Tool Instrument;
-        public CurvaState curvastate;
-        public enum Tool
-        {
-            Pencil,
-            Oshirgish,
-            Line,
-            Curve,
-            Ellipse,
-            FillEllipse,
-            Rect,
-            FillRect
-        }
-        public enum CurvaState
-        {
-            NoCurva,
-            Line,
-            _1,
-            _2
-        }
         public Form1()
         {
             InitializeComponent();
-            ad = new Thread(asdsad);
             pen = new Pen(Color.Black, 5);
-            brush = new SolidBrush(Color.Black);
+            oshirgish = new Pen(Color.White, 5);
             Vasek = new Secretar();
             CurvaPoints = new List<Point>();
-            Is_Drawing = false;
-            Instrument = Tool.Line;
+            Instrument = Tool.Pencil;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            bitmap = new Bitmap(Ecran.Width, Ecran.Height);
+            g = Graphics.FromImage(bitmap);
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            Ecran.Image = bitmap;
         }
 
 
         private void Ecran_Paint(object sender, PaintEventArgs e)
         {
-            g = Ecran.CreateGraphics();
-        }
-
-        private void Nazhal(object sender, MouseEventArgs e)
-        {
-            a = new Point(e.X, e.Y);
-            Is_Drawing = true;
-        }
-
-        private void Dvinul(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void Otpustil(object sender, MouseEventArgs e)
-        {
-            ad.Abort();
-            b = new Point(e.X, e.Y);
-            Is_Drawing = false;
-            Rectangle r = Vasek.Calculator9000(a, b);
             switch (Instrument)
             {
                 case Tool.Pencil:
-                    MessageBox.Show("asdasd");
+                    e.Graphics.DrawLine(pen, a, b);
+                    a = b;
                     break;
                 case Tool.Oshirgish:
-                    g.DrawPolygon(pen, Vasek.Zvezda2(a, b).ToArray());
+                    e.Graphics.DrawLine(oshirgish, a, b);
+                    a = b;
                     break;
                 case Tool.Line:
-                    g.DrawLine(pen, a, b);
+                    e.Graphics.DrawLine(pen, a, b);
                     break;
                 case Tool.Curve:
-                    //CurvaPoints.Add(a);
-                    //CurvaPoints.Add(b);
-                    //CurvaPoints.Add(new Point(12, 15));
-                    //g.DrawCurve(pen, CurvaPoints.ToArray());
-                    switch (curvastate)
-                    {
-                        case CurvaState.NoCurva:
-                            asd = g.BeginContainer();
-                            gs = g.Save();
-                            //g.DrawLine(pen, a, b);
-                            CurvaPoints.Add(a);
-                            CurvaPoints.Add(b);
-                            curvastate = CurvaState.Line;
-                            break;
-                        case CurvaState.Line:
-                            g.EndContainer(asd);
-                            g.Restore(gs);
-                            CurvaPoints.Add(b);
-                            //g.DrawCurve(pen, CurvaPoints.ToArray());
-                            curvastate = CurvaState._1;
-                            break;
-                        case CurvaState._1:
-                            CurvaPoints.Add(b);
-                            g.DrawCurve(pen, CurvaPoints.ToArray());
-                            curvastate = CurvaState.NoCurva;
-                            CurvaPoints.Clear();
-                            break;
-                        case CurvaState._2:
-                            break;
-                        default:
-                            g.Save();
-                            break;
-                    }
-
                     break;
                 case Tool.Ellipse:
-                    g.DrawEllipse(pen, r);
+                    e.Graphics.DrawEllipse(pen, r);
                     break;
                 case Tool.FillEllipse:
-                    g.FillEllipse(brush, r);
+                    e.Graphics.FillEllipse(pen.Brush, r);
                     break;
                 case Tool.Rect:
-                    g.DrawRectangle(pen, r);
+                    e.Graphics.DrawRectangle(pen, r);
                     break;
                 case Tool.FillRect:
-                    g.FillRectangle(brush, r);
+                    e.Graphics.FillRectangle(pen.Brush, r);
+                    break;
+                case Tool.Star5:
+                    e.Graphics.DrawPolygon(pen, Zvezda5(a, b));
+                    break;
+                case Tool.Star4:
+                    e.Graphics.DrawPolygon(pen, Zvezda4(a, b));
                     break;
                 default:
                     break;
             }
         }
 
+        private void Nazhal(object sender, MouseEventArgs e)
+        {
+            a = e.Location;
+        }
+
+        private void Dvinul(object sender, MouseEventArgs e)
+        {
+            GdeYa.Text = e.Location.ToString();
+            if(e.Button == MouseButtons.Left)
+            {
+                b = e.Location;
+                r = Rectangulator(a, b);
+                switch (Instrument)
+                {
+                    case Tool.Pencil:
+                        g.DrawLine(pen, a, b);
+                        a = b;
+                        break;
+                    case Tool.Oshirgish:
+                        g.DrawLine(oshirgish, a, b);
+                        a = b;
+                        break;
+                }
+                Ecran.Refresh();
+            }
+        }
+
+        private void Otpustil(object sender, MouseEventArgs e)
+        {
+            b = e.Location;
+            r = Rectangulator(a, b);
+            switch (Instrument)
+            {
+                case Tool.Line:
+                    g.DrawLine(pen, a, b);
+                    break;
+                case Tool.Curve:
+                    break;
+                case Tool.Ellipse:
+                    g.DrawEllipse(pen, r);
+                    break;
+                case Tool.FillEllipse:
+                    g.FillEllipse(pen.Brush, r);
+                    break;
+                case Tool.Rect:
+                    g.DrawRectangle(pen, r);
+                    break;
+                case Tool.FillRect:
+                    g.FillRectangle(pen.Brush, r);
+                    break;
+                case Tool.Star5:
+                    g.DrawPolygon(pen, Zvezda5(a, b));
+                    break;
+                case Tool.Star4:
+                    g.DrawPolygon(pen, Zvezda4(a, b));
+                    break;
+                default:
+                    break;
+            }
+            Ecran.Refresh();
+        }
+
         private void Cvetik(object sender, EventArgs e)
         {
             Button b = (Button)sender;
             pen.Color = b.BackColor;
-            brush.Color = b.BackColor;
             CurColor.BackColor = b.BackColor;
         }
 
@@ -158,7 +146,6 @@ namespace Paint_2._0
         {
             Cvet.ShowDialog();
             pen.Color = Cvet.Color;
-            brush.Color = Cvet.Color;
             CurColor.BackColor = Cvet.Color;
             if (!Vasek.VybCvet.Contains(Cvet.Color))
             {
@@ -171,24 +158,26 @@ namespace Paint_2._0
         private void Instrumentik(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            Instrument = Vasek.KakoiInstrum(b.Name);
+            Instrument = KakoiInstrum(b.Name);
             CurInstrum.Image = b.Image;
         }
 
         private void Razmer(object sender, EventArgs e)
         {
             pen.Width = int.Parse(Razmershik.Value.ToString());
+            oshirgish.Width = int.Parse(Razmershik.Value.ToString());
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-            g.Save();
-            //g.Restore(gs);
-            Ecran.Image = new Bitmap(200, 200, g);
-            Ecran.Image.Save(saveFileDialog1.FileName);
+            Sohranyalka.ShowDialog();
+            bitmap.Save(Sohranyalka.FileName);
         }
 
+        private void Instuments_Enter(object sender, EventArgs e)
+        {
+
+        }
 
         private void Pokraska(Color cvet)
         {
@@ -211,34 +200,26 @@ namespace Paint_2._0
             }
         }
 
-        private void asdsad()
+        private void Ecran_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            if (Is_Drawing)
-            {
-                switch (Instrument)
-                {
-                    case Tool.Pencil:
-                        break;
-                    case Tool.Oshirgish:
-                        break;
-                    case Tool.Line:
-                        g.DrawLine(pen, a, b);
-                        break;
-                    case Tool.Curve:
-                        break;
-                    case Tool.Ellipse:
-                        break;
-                    case Tool.FillEllipse:
-                        break;
-                    case Tool.Rect:
-                        break;
-                    case Tool.FillRect:
-                        break;
-                    default:
-                        break;
-                }
-                g.Restore(gs);
-            }
+            
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Otkryvalka.ShowDialog();
+            bitmap = new Bitmap(Otkryvalka.FileName);
+            g = Graphics.FromImage(bitmap);
+            Ecran.Image = bitmap;
+        }
+
+        private void очиститьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            g.Clear(Color.White);
+            bitmap = new Bitmap(Ecran.Width, Ecran.Height);
+            g = Graphics.FromImage(bitmap);
+            Ecran.Image = bitmap;
+            Ecran.Refresh();
         }
     }
 }
