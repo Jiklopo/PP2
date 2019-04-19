@@ -4,3 +4,9 @@ J:\YandexDisk\Документы\с#\1\ConsoleApp6\ConsoleApp6\bin\Debug\Console
 J:\YandexDisk\Документы\с#\1\ConsoleApp6\ConsoleApp6\obj\Debug\ConsoleApp6.csproj.CoreCompileInputs.cache
 J:\YandexDisk\Документы\с#\1\ConsoleApp6\ConsoleApp6\obj\Debug\ConsoleApp6.exe
 J:\YandexDisk\Документы\с#\1\ConsoleApp6\ConsoleApp6\obj\Debug\ConsoleApp6.pdb
+J:\Библиотеки\Документы\с#\1 Lab\Task4\ConsoleApp6\ConsoleApp6\bin\Debug\ConsoleApp6.exe.config
+J:\Библиотеки\Документы\с#\1 Lab\Task4\ConsoleApp6\ConsoleApp6\bin\Debug\ConsoleApp6.exe
+J:\Библиотеки\Документы\с#\1 Lab\Task4\ConsoleApp6\ConsoleApp6\bin\Debug\ConsoleApp6.pdb
+J:\Библиотеки\Документы\с#\1 Lab\Task4\ConsoleApp6\ConsoleApp6\obj\Debug\ConsoleApp6.csproj.CoreCompileInputs.cache
+J:\Библиотеки\Документы\с#\1 Lab\Task4\ConsoleApp6\ConsoleApp6\obj\Debug\ConsoleApp6.exe
+J:\Библиотеки\Документы\с#\1 Lab\Task4\ConsoleApp6\ConsoleApp6\obj\Debug\ConsoleApp6.pdb

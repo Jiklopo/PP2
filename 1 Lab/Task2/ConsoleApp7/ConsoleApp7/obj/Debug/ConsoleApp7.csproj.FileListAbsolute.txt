@@ -5,3 +5,10 @@ J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\Console
 J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.csproj.CoreCompileInputs.cache
 J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.exe
 J:\YandexDisk\Документы\с#\1\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.pdb
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.exe.config
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.exe
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.pdb
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.csprojAssemblyReference.cache
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.csproj.CoreCompileInputs.cache
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.exe
+J:\Библиотеки\Документы\с#\1 Lab\Task2\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.pdb

@@ -21,7 +21,7 @@ namespace ConsoleApp6
                 }
                 Console.WriteLine();//changing lines
             }
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }

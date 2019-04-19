@@ -27,7 +27,7 @@ namespace Snake_Console
 
         public void Draw()
         {
-            foreach(Point p in Chel)
+            foreach (Point p in Chel)
             {
                 Console.SetCursorPosition(p.x, p.y);
                 Console.Write(sign, color);
@@ -43,5 +43,6 @@ namespace Snake_Console
             }
             return false;
         }
+
     }
 }

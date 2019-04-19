@@ -21,19 +21,19 @@ namespace ConsoleApp5
                 bool IsPrime = true;
                 for(int j=2; j<a[i]; j++)
                 {
-                    if (a[i] % j == 0 || a[i] == 1) //to check if number is prime or not we check if  it is divisible by each number which is less than it
+                    if (a[i] % j == 0) //to check if number is prime or not we check if  it is divisible by each number which is less than it
                     {
                         IsPrime = false;//if it is divisible by some number it means that it is not prime
                         break;
                     }
                 }
-                if (IsPrime)
+                if (IsPrime && a[i]!=1)
                 {
-                    Console.Write(a[i]);// if number is prime we show it
-                    Console.Write(" ");
+                    Console.Write(a[i] + " ");// if number is prime we show it
+                    //Console.Write(" ");
                 }
             }
-            Console.Read();
+            //Console.ReadKey();
         }
     }
 }

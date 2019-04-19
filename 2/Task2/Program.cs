@@ -22,17 +22,17 @@ namespace Task2
         }
         static void Main(string[] args)
         {
+
             int a;
-            string s = System.IO.File.ReadAllText(@"..\..\input.txt");//reading everything from file and saving it to a string
-            System.IO.File.WriteAllText(@"..\..\output.txt", "");//creates an empty file
-            string[] sa = s.Split(' '); //splits string to an array of string numbers("26")
-            for(int i=0; i<sa.Length; i++)
+            string s = File.ReadAllText(@"..\..\input.txt");
+            string[] s1 = s.Split(' ');
+            foreach(string s2 in s1)
             {
-                a = int.Parse(sa[i]);//makes an int from string
-                if (Is_Prime(a))//checks if this int is prime
-                    System.IO.File.AppendAllText(@"..\..\output.txt", a + " ");//adding it to the file
+                a = int.Parse(s2);
+                if (Is_Prime(a))
+                    File.AppendAllText(@"..\..\output2.txt", s2 + ' ');
             }
-            Console.ReadKey();
+         
 
         }
     }

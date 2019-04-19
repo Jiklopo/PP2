@@ -14,19 +14,23 @@ namespace Snake_Console
             LoadLevel();
         }
         
-        public void LoadLevel()
+        public void LoadLevel(int lvl = 1)
         {
+            Console.Clear();
             Chel.Clear();
-            string[] level = File.ReadAllText(@"..\..\level1.txt").Split('\n');
+            GoodSpots.Clear();
+            if (lvl > 3)
+                lvl = 1;
+            string[] level = File.ReadAllText(@"levels\level" + lvl + ".txt").Split('\n');
             for(int i=0; i<level.Length; i++)
             {
-                for(int j=0; j<level[i].Length; j++)
+                for(int j=0; j < level[i].Length; j++)
                 {
                     if (level[i][j] == '#')
                     {
                         Chel.Add(new Point(j, i));
                     }
-                    else
+                    else if(level[i][j] == '.')
                     {
                         GoodSpots.Add(new Point(j, i));
                     }

@@ -16,6 +16,12 @@ namespace Snake_Console
         {
         }
 
+        public void ChangeLevel()
+        {
+            Chel.Clear();
+            Chel.Add(new Point(1, 1));
+        }
+
         new public void Draw()
         {
             R = 30;

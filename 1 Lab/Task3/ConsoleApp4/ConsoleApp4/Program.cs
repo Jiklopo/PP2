@@ -10,20 +10,13 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine()); 
-            int[] array = new int[n]; //creating an array
-            for(int i=0; i<n; i++)
+            string a = Console.ReadLine();
+            string[] b = a.Split(' ');
+            foreach(string s in b)
             {
-                array[i] = int.Parse(Console.ReadLine()); //writing in an array
+                Console.Write(s + " " + s + " ");
             }
-            for(int i=0; i<n; i++)
-            {
-                Console.Write(array[i]);//show element of the array
-                Console.Write(" ");
-                Console.Write(array[i]);//show element of the array for the second time
-                Console.Write(" ");
-            }
-            Console.ReadKey();
+            
         }
     }
 }

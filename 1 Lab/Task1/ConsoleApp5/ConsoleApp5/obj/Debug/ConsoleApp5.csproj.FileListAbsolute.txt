@@ -10,3 +10,10 @@ J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleA
 J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csproj.CoreCompileInputs.cache
 J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.exe
 J:\YandexDisk\Документы\cs\1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.pdb
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe.config
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.pdb
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csprojAssemblyReference.cache
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csproj.CoreCompileInputs.cache
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.exe
+J:\Библиотеки\Документы\с#\1 Lab\Task1\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.pdb

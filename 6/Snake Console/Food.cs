@@ -24,7 +24,7 @@ namespace Snake_Console
             }
         }
 
-        public void Spawn(List<Point> GoodPoints)
+        public void Spawn(List<Point> GoodPoints, List<Point> BadPoints)
         {
             Random random = new Random();
             Chel[0] = GoodPoints[random.Next(0, GoodPoints.Count - 1)];
