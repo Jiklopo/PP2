@@ -100,10 +100,54 @@ namespace SHITalco10k
             IsDrob = false;
         }
 
+        private void CleanOdnoTolko(object sender, EventArgs e)
+        {
+            string s = Telik.Text;
+            Telik.Text = s.Remove(s.Length - 1);
+        }
+
+        private void NazhalKnopku(object sender, KeyEventArgs e)
+        {
+            Keys a = e.KeyCode;
+            if (a == Keys.D1 || a == Keys.NumPad1)
+                button1.PerformClick();
+            else if (a == Keys.D2 || a == Keys.NumPad2)
+                button2.PerformClick();
+            else if (a == Keys.D3 || a == Keys.NumPad3)
+                button3.PerformClick();
+            else if (a == Keys.D4 || a == Keys.NumPad4)
+                button4.PerformClick();
+            else if (a == Keys.D5 || a == Keys.NumPad5)
+                button5.PerformClick();
+            else if (a == Keys.D6 || a == Keys.NumPad6)
+                button6.PerformClick();
+            else if (a == Keys.D7 || a == Keys.NumPad7)
+                button7.PerformClick();
+            else if (a == Keys.D8 || a == Keys.NumPad8)
+                button8.PerformClick();
+            else if (a == Keys.D9 || a == Keys.NumPad9)
+                button9.PerformClick();
+            else if (a == Keys.D0 || a == Keys.NumPad0)
+                button0.PerformClick();
+            else if (a == Keys.D0 || a == Keys.NumPad0)
+                button0.PerformClick();
+            else if (a == Keys.Add)
+                Plus.PerformClick();
+            else if (a == Keys.Subtract)
+                Minus.PerformClick();
+            else if (a == Keys.Multiply)
+                Umnojenie.PerformClick();
+            else if (a == Keys.Divide)
+                Delenie.PerformClick();
+            else if (a == Keys.End)
+                Ravenstvo.PerformClick();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 
 }

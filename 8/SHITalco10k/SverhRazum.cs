@@ -8,6 +8,7 @@ namespace SHITalco10k
 {
     public class SverhRazum
     {
+        public bool Drob;
         public ChtoTvoritsya Seychas;
         public ChtoBudemDelat Pozzhe;
         public double A, B;
@@ -29,6 +30,7 @@ namespace SHITalco10k
         }
         public SverhRazum()
         {
+            Drob = false;
             Seychas = ChtoTvoritsya.Nichego;
         }
 
