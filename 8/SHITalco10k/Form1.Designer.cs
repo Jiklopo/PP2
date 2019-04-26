@@ -384,7 +384,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "SHITalco10k";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NazhalKnopku);
             this.ResumeLayout(false);
             this.PerformLayout();
