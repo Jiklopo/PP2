@@ -10,31 +10,31 @@ namespace SuperBaza
 {
     public class Dosje
     {
-        DataSet ds;
-        SQLiteConnection con;
+        public DataSet ds;
+        SQLiteConnection soed;
         SQLiteCommand prikaz;
         public Dosje()
         {
             string path = @"..\..\..\Bratki.db";
-            con = new SQLiteConnection("Data Source =" + path);
+            soed = new SQLiteConnection("Data Source =" + path);
         }
 
         public void Vypolnyaj(string ukaz)
         {
-            con.Open();
-            prikaz = new SQLiteCommand(ukaz, con);
+            soed.Open();
+            prikaz = new SQLiteCommand(ukaz, soed);
             prikaz.ExecuteNonQuery();
-            con.Close();
+            soed.Close();
         }
 
         public DataTable DaiInfu()
         {
-            con.Open();
+            soed.Open();
             string ukaz = "select * from Bratki";
             DataSet ds = new DataSet();
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(ukaz, con);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(ukaz, soed);
             adapter.Fill(ds);
-            con.Close();
+            soed.Close();
             return ds.Tables[0];
         } 
     }
